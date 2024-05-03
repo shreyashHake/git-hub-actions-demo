@@ -23,9 +23,9 @@ jobs:
           java-version: 17
 
       - name: Unit tests
-        run: mvn -B test --file pom.xml
+        run: mvn -B test --file demo-project-for-github-actions/pom.xml
 
       - name: Build the application
         run: |
           mvn clean
-          mvn -B package --file pom.xm
+          mvn -B package --file demo-project-for-github-actions/pom.xml
