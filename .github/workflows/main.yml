@@ -23,9 +23,11 @@ jobs:
           java-version: 17
 
       - name: Unit tests
-        run: mvn -B test --file demo-project-for-github-actions/pom.xml
+        working-directory: demo-project-for-github-actions
+        run: mvn -B test --file pom.xml
 
       - name: Build the application
+        working-directory: demo-project-for-github-actions
         run: |
           mvn clean
-          mvn -B package --file demo-project-for-github-actions/pom.xml
+          mvn -B package --file pom.xml
