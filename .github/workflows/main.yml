@@ -81,7 +81,8 @@ jobs:
       - name: Build Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: demo-project-for-github-actions
+          file: docker/Dockerfile
           push: false
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/git-hub-actions-demo:${{ github.sha }}
 
@@ -94,6 +95,7 @@ jobs:
       - name: Push to docker hub
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: demo-project-for-github-actions
+          file: docker/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/git-hub-actions-demo:${{ github.sha }}
