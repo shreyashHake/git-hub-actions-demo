@@ -14,6 +14,7 @@ public class DemoController {
         return "hello, have a nice date.";
     }
 
+
     @GetMapping("/greet/{name}")
     public String sayHelloToName(@PathVariable("name") String name) {
         return "Hello, " + name + " have a nice date";
