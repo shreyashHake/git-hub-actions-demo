@@ -7,6 +7,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @WebMvcTest(DemoController.class)
 public class DemoControllerTest {
 
@@ -16,7 +19,17 @@ public class DemoControllerTest {
     @Test
     public void testSayHello() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/greet"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string("hello, have a nice date."));
+                .andExpect(status().isOk())
+                .andExpect(content().string("hello, have a nice date."));
+    }
+
+    @Test
+    public void testSayHelloToName() throws Exception {
+        String name = "Alice";
+        String expected = "Hello, Alice have a nice day";
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/greet/{name}", name))
+                .andExpect(status().isOk())
+                .andExpect(content().string(expected));
     }
 }
