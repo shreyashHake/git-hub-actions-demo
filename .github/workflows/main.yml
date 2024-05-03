@@ -59,7 +59,7 @@ jobs:
 
       - name: Compile project
         working-directory: demo-project-for-github-actions
-        run: mvn -B clean compile --file pom.xml
+        run: mvn -B package --file pom.xml
 
   build-image:
     name: Build Docker image
