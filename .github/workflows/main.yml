@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-deploy:
-    name: Build and deploy a demo spring boot project
+    name: Build and push docker image of demo spring boot project
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
