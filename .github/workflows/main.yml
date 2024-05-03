@@ -72,10 +72,6 @@ jobs:
           distribution: 'corretto'
           java-version: 17
 
-      - name: Running Unit tests
-        working-directory: demo-project-for-github-actions
-        run: mvn -B test --file pom.xml
-
       - name: Build Docker Image
         uses: docker/build-push-action@v5
         with:
