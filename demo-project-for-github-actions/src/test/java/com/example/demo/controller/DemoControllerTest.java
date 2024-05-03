@@ -26,7 +26,7 @@ public class DemoControllerTest {
     @Test
     public void testSayHelloToName() throws Exception {
         String name = "Alice";
-        String expected = "Hello, Alice have a nice day";
+        String expected = "Hello, Alice have a nice date";
 
         mockMvc.perform(MockMvcRequestBuilders.get("/greet/{name}", name))
                 .andExpect(status().isOk())
