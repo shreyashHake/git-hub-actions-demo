@@ -75,7 +75,7 @@ jobs:
           mvn clean package
 
   build-image:
-    name: Build Docker image
+    name: Build Docker image and push to Docker hub
     runs-on: ubuntu-latest
     needs: [ build ]
     steps:
